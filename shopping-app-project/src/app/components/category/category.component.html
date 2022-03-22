@@ -1,1 +1,15 @@
-<p>category works!</p>
+<div>
+    <h1 class="text-center">All Categories</h1>
+    <div class="row">
+      <div class="col-sm-3" *ngFor="let category of categories; let i = index">
+        <div class="card" style="height:400px">
+          <br>
+          <img src="{{proCategory[i].image}}" class="card-img-top mx-auto d-block" style=" width:200px; max-height: 250px;"/>
+          <div class="card-body text-center">
+            <h5 class="card-title">{{category | titlecase}}</h5>
+            <a (click)="onClick(category)" class="btn btn-primary btn-block">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

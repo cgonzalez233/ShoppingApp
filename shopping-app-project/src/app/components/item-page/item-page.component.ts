@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
+import { IProduct } from 'src/app/product';
 
 @Component({
   selector: 'app-item-page',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemPageComponent implements OnInit {
 
-  constructor() { }
+  productInfo: any;
+  proId: number = 15;
+  relatedProducts: any[] = [];
+  proCat: String;
+
+  constructor(private dataService: DataService) {
+    
+   }
 
   ngOnInit(): void {
+    this.dataService.getProductById(15).subscribe(data => {
+      this.productInfo = data
+    })
+    this.proCat = this.productInfo.category
+    this.dataService.getProductsByCategory(this.proCat).subscribe(data => {
+      this.relatedProducts = data
+      console.log(this.relatedProducts)
+    })
+
   }
+
+  
 
 }
