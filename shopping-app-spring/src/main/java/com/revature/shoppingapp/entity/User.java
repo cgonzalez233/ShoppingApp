@@ -8,21 +8,52 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @ToString
 @Entity
-@Table(name = "users")
+@Table(
+        name = "users",
+        uniqueConstraints = @UniqueConstraint(
+                name = "email_unique",
+                columnNames = {"email", "username"}
+        )
+)
 public class User {
 
     @Id
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @SequenceGenerator(
+            name = "user_sequence",
+            sequenceName = "user_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "user_sequence"
+    )
     private int userId;
     private String username;
     private String password;
+    @Column(nullable = false)
     private String email;
     private String address;
     private String phone;
+
+//    @OneToMany(
+//            cascade = CascadeType.ALL,
+//            fetch = FetchType.LAZY,
+//            mappedBy = "user"
+//    )
+    @OneToMany(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "userId"
+    )
+    private List<Order> userOrders;
 
 }

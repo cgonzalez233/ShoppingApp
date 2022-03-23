@@ -1,11 +1,14 @@
 package com.revature.shoppingapp.service;
 
+import com.revature.shoppingapp.entity.Order;
 import com.revature.shoppingapp.entity.User;
 import com.revature.shoppingapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService{
 
     @Autowired
@@ -15,6 +18,12 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> getAllUsers() {
         return repository.findAll();
+    }
+
+    @Override
+    public List<Order> getOrdersByUser(int userId) {
+        User user = repository.getById(userId);
+        return repository.findByUserId(user);
     }
 
     @Override

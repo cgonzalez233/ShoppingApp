@@ -1,11 +1,14 @@
 package com.revature.shoppingapp.service;
 
 import com.revature.shoppingapp.entity.Order;
+import com.revature.shoppingapp.entity.User;
 import com.revature.shoppingapp.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class OrderServiceImpl implements OrderService{
 
     @Autowired
@@ -17,20 +20,8 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public List<Order> getOrdersByUser(int userId) {
-        return null;
-    }
-
-    @Override
     public Order getOrderById(int orderId) {
         return getOrderById(orderId);
-    }
-
-    @Override
-    public void orderComplete(int orderId) {
-        Order orderDb = repository.getById(orderId);
-        orderDb.setStatus("Ordered");
-        repository.save(orderDb);
     }
 
     @Override
@@ -43,8 +34,8 @@ public class OrderServiceImpl implements OrderService{
         Order orderDb = repository.findById(orderId).get();
         orderDb.setItemName(order.getItemName());
         orderDb.setItemPrice(order.getItemPrice());
-        orderDb.setUserId(order.getUserId());
         orderDb.setStatus(order.getStatus());
+        orderDb.setUser(order.getUser());
         repository.save(orderDb);
     }
 
