@@ -17,12 +17,25 @@ import javax.persistence.*;
 public class Order {
 
     @Id
+    @SequenceGenerator(
+            name = "order_sequence",
+            sequenceName = "order_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "order_sequence"
+    )
     private int orderId;
-    @ManyToOne
-    @JoinColumn(name = "userOrders")
-    private int userId;
     private String itemName;
     private double itemPrice;
     private String status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "userId"
+    )
+    private User user;
 
 }
