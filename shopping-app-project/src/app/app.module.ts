@@ -15,6 +15,7 @@ import { CategoryPageComponent } from './components/category-page/category-page.
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductsComponent } from './components/products/products.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NewUserFormComponent } from './components/new-user-form/new-user-form.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AppRoutingModule } from './app-routing.module';
     CheckoutPageComponent,
     LoginPageComponent,
     CategoryPageComponent,
-    ProductsComponent
+    ProductsComponent,
+    NewUserFormComponent
   ],
   imports: [
     BrowserModule,

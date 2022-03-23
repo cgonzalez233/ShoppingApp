@@ -6,11 +6,14 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { CategoryPageComponent } from './components/category-page/category-page.component';
 import { CategoryComponent } from './components/category/category.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import {NewUserFormComponent}from 'src/app/components/new-user-form/new-user-form.component'
+
 const routes: Routes = [
   {path: 'home-page', component: ProductsComponent},
   {path: 'category-page', component: CategoryPageComponent},
   {path: 'category', component: CategoryComponent},
-  {path: 'login-page', component: LoginPageComponent}
+  {path: 'login-page', component: LoginPageComponent},
+  {path: 'new-user-form', component: NewUserFormComponent}
 ]
 
 @NgModule({
