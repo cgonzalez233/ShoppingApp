@@ -14,6 +14,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/users")
     public List<User> getAllUsers(){
         return userService.getAllUsers();
@@ -28,6 +29,8 @@ public class UserController {
     public User getUserById(@PathVariable("id") int id){
         return userService.getUserById(id);
     }
+
+
 
     @PostMapping("/users")
     public User addUser(@RequestBody User user){

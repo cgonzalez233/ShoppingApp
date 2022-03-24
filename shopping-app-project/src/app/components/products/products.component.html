@@ -1,0 +1,19 @@
+
+<div class="container col-sm-8">
+    <div class="row" class="card-group">
+            <div class="col-sm-4" *ngFor="let product of products">
+                    <div class="card" style="width: 18rem;">
+                        <img src={{product.image}} class="card-img-top" alt="..." >
+                            <div class="card-body">
+                                <h5 class="card-title">{{product.title}}</h5>
+                                <p class="card-text">{{product.price | currency}}</p>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary" type="button" aria-expanded="false">
+                                    View
+                                    </button>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>

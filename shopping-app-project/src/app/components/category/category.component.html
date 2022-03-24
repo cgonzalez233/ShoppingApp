@@ -1,15 +1,27 @@
-<div>
-    <h1 class="text-center">All Categories</h1>
-    <div class="row">
-      <div class="col-sm-3" *ngFor="let category of categories; let i = index">
-        <div class="card" style="height:400px">
-          <br>
-          <img src="{{proCategory[i].image}}" class="card-img-top mx-auto d-block" style=" width:200px; max-height: 250px;"/>
-          <div class="card-body text-center">
-            <h5 class="card-title">{{category | titlecase}}</h5>
-            <a (click)="onClick(category)" class="btn btn-primary btn-block">Go somewhere</a>
-          </div>
-        </div>
-      </div>
+<section class="vh-700 gradient-custom">
+    <div class="d-flex flex-inline bd-highlight mb-3">
+        <div class="p-2 bd-highlight"><a class="nav-link" routerLink="category" (click)="categoryBind('mens clothing')" style="color: white;">Mens Clothing</a></div>
+        <div class="p-2 bd-highlight"><a class="nav-link" routerLink="category" (click)="categoryBind('womens clothing')" style="color: white;">Womens Clothing</a></div>
+        <div class="p-2 bd-highlight"><a class="nav-link" routerLink="category"(click)="categoryBind('electronics')" style="color: white;">Electronics</a></div>
+        <div class="p-2 bd-highlight"><a class="nav-link" routerLink="category" (click)="categoryBind('jewelery')" style="color: white;">Jewelery</a></div>
     </div>
-  </div>
+    <p>category: {{category}}</p>
+    <div class="container">
+        <div class="row" class="card-group">
+                <div class="col-sm-3" *ngFor="let product of products">
+                        <div class="card" style="width: 18rem; height: 450px; margin: 5px;">
+                            <img src={{product.image}} class="card-img-top" alt="..." style="width: 200px; height: 250px;" >
+                                <div class="card-body" style="position: relative;">
+                                    <h5 class="card-title">{{product.title}} <p *ngIf="product.title.length < 50"><br></p></h5>
+                                    <p class="card-text">{{product.price | currency}}</p>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary" type="button" aria-expanded="false">
+                                        View
+                                        </button>
+                                    </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+    </div>
+</section>
