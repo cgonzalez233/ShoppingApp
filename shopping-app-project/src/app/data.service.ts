@@ -68,6 +68,10 @@ getOrdersbyUserId(id: number): Observable<any>{
   return this.http.get('http://localhost:9000/user/' + id + '/orders')
 }
 
+getUserCart(id: number): Observable<any>{
+  return this.http.get('http://localhost:9000/user/' + id + '/cart')
+}
+
 createUser(user: IUser): Observable<IUser>{
   return this.http.post<IUser>('http://localhost:9000/users', user)
 }
