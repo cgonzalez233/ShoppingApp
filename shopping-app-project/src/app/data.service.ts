@@ -24,5 +24,9 @@ export class DataService {
   getProductById(proId: any):Observable<any>{
     return this.http.get<any>('https://fakestoreapi.com/products/' + proId)
   }
+
+  getProductsByCategoryRel(catStr: String):Observable<any>{
+    return this.http.get<any>('https://fakestoreapi.com/products/category/' + catStr + "?limit=4")
+  }
   
 }
