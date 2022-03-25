@@ -31,7 +31,11 @@ public class OrderController {
 
     @PostMapping("/orders")
     public Order addOrder(@RequestBody Order order){
-        return orderService.addOrder(order);
+        String name = order.getItemName();
+        double price = order.getItemPrice();
+        String image = order.getImage();
+        int userId = order.getUserId();
+        return orderService.addOrder(name, price, image, userId);
     }
 
     @PutMapping("/orders/{id}")

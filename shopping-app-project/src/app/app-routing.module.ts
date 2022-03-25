@@ -13,7 +13,7 @@ import { ItemPageComponent } from './components/item-page/item-page.component';
 const routes: Routes = [
   {path: '', component: HomePageComponent},
   {path: 'category-page', component: CategoryPageComponent},
-  {path: 'category/:category', component: CategoryComponent},
+  {path: 'category/:id', component: CategoryComponent},
   {path: 'category', component: CategoryComponent},
   {path: 'login-page', component: LoginPageComponent},
   {path: 'new-user-form', component: NewUserFormComponent},

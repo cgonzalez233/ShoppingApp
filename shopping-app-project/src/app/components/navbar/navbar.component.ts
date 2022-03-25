@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private globaluser: AppService) { }
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    this.globaluser.setMyGV(undefined);
+    window.location.reload();
   }
 
 }

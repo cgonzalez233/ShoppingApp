@@ -13,18 +13,18 @@
                         <div class="container">
                             <div class="row" *ngFor="let item of userCart"> 
                                 <div class="col-sm-3">
-                                    <img src="{{item.image}}" alt="{{item.title}}" style="height: 120px;">
+                                    <img src="{{item.image}}" alt="{{item.itemName}}" style="height: 120px;">
                                     <h1></h1>
                                 </div>
                                 <div class="col-sm-6">
                                     <br>
                                     <br>
-                                    <h5>{{item.title}}</h5>
+                                    <h5>{{item.itemName}}</h5>
                                 </div>
                                 <div class="col-sm-3 border-left">
                                     <br>
                                     <br>
-                                    <h4>{{item.price | currency}}</h4>
+                                    <h4>{{item.itemPrice | currency}}</h4>
                                 </div>
                                 <hr style="width: 80%; margin: auto;">
                                 <br>

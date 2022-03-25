@@ -38,6 +38,14 @@ export class DataService {
     return this.http.get<any>('http://localhost:9000/orders');
   }
 
+  getOrdersByUserId(id: number): Observable<any>{
+    return this.http.get('http://localhost:9000/user/' + id + '/orders')
+  }
+  
+  getCartByUserId(id: number): Observable<any>{
+    return this.http.get('http://localhost:9000/user/' + id + '/cart')
+  }
+
   getOrderById(ordId: any): Observable<any>{
     return this.http.get('http://localhost:9000/orders/' + ordId)
   }
@@ -62,10 +70,6 @@ getUsers():Observable<any>{
 
 getUserById(id: number): Observable<any>{
   return this.http.get('http://localhost:9000/users/' + id)
-}
-
-getOrdersbyUserId(id: number): Observable<any>{
-  return this.http.get('http://localhost:9000/user/' + id + '/orders')
 }
 
 createUser(user: IUser): Observable<IUser>{
