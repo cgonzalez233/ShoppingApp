@@ -18,6 +18,12 @@ public class OrderController {
         return orderService.getAllOrders();
     }
 
+    @GetMapping("user/{id}/orders")
+    public List<Order> getUserOrders(@PathVariable("id") int id){return orderService.getOrdersByUserId(id);}
+
+    @GetMapping("user/{id}/cart")
+    public List<Order> getUserCart(@PathVariable("id") int id){return orderService.getOrdersInCart(id);}
+
     @GetMapping("/orders/{id}")
     public Order getOrderById(@PathVariable("id") int id){
         return orderService.getOrderById(id);

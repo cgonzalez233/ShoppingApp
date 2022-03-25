@@ -21,16 +21,6 @@ public class UserServiceImpl implements UserService{
         return repository.findAll();
     }
 
-    @Override
-    public List<Order> getOrdersByUser(int userId) {
-        User user = repository.getById(userId);
-        return repository.findByUserId(user);
-    }
-
-    @Override
-    public List<Order> getCartOrders(int userId){
-        return repository.findByUserInCart(userId);
-    }
 
     @Override
     public User getUserById(int id) {

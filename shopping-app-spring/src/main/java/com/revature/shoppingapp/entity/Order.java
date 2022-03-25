@@ -30,12 +30,6 @@ public class Order {
     private String itemName;
     private double itemPrice;
     private String status;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(
-            name = "user_id",
-            referencedColumnName = "userId"
-    )
-    private User user;
+    private int userId;
 
 }

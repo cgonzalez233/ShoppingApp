@@ -25,6 +25,17 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
+    public List<Order> getOrdersByUserId(int userId) {
+        return repository.findByUserId(userId);
+    }
+
+    @Override
+    public List<Order> getOrdersInCart(int userId) {
+        return repository.findByUserInCart(userId);
+    }
+
+
+    @Override
     public Order addOrder(Order order) {
         return repository.save(order);
     }
@@ -35,7 +46,7 @@ public class OrderServiceImpl implements OrderService{
         orderDb.setItemName(order.getItemName());
         orderDb.setItemPrice(order.getItemPrice());
         orderDb.setStatus(order.getStatus());
-        orderDb.setUser(order.getUser());
+        orderDb.setUserId(order.getUserId());
         repository.save(orderDb);
     }
 

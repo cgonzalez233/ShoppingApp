@@ -1,6 +1,6 @@
 import { PathLocationStrategy } from '@angular/common';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {BehaviorSubject} from 'rxjs';
 import {DataService} from 'src/app/data.service';
 import { IProduct } from 'src/app/product';
@@ -16,7 +16,7 @@ export class CategoryComponent implements OnInit {
   //currentMessage = this.messageHolder.asObservable()
   category: any;
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) { 
+  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router) { 
     this.products = [];
   }
 
@@ -35,6 +35,11 @@ export class CategoryComponent implements OnInit {
   categoryBind(cat: string){
    // this.messageHolder.next(cat);
    this.dataService.getProductsByCategory(cat).subscribe(data=>this.products = data);
+  }
+
+  onClick(id: any){
+    console.log(id)
+    this.router.navigate(["itemPage", id])
   }
 
  
