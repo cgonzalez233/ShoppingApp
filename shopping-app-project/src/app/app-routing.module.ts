@@ -9,7 +9,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import {NewUserFormComponent}from 'src/app/components/new-user-form/new-user-form.component'
 
 const routes: Routes = [
-  {path: 'home-page', component: ProductsComponent},
+  {path: 'home-page', component: HomePageComponent},
   {path: 'category-page', component: CategoryPageComponent},
   {path: 'category', component: CategoryComponent},
   {path: 'login-page', component: LoginPageComponent},

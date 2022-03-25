@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DataServiceService} from 'src/app/data-service.service'
+import {AppService} from 'src/app/data-service.service'
 import { IProduct } from 'src/app/product';
 import {CategoryComponent}from 'src/app/components/category/category.component'
 
@@ -11,7 +11,7 @@ import {CategoryComponent}from 'src/app/components/category/category.component'
 export class ProductsComponent implements OnInit {
 
   public products: Array<IProduct>;
-  constructor(private _dataServ: DataServiceService){
+  constructor(private _dataServ: AppService){
       this.products = [];  
    }
 
