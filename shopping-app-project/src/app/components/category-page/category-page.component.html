@@ -1,5 +1,6 @@
-<section class="vh-700 gradient-custom">
-<div class="jumbotron">
+<div class="container">
+    
+<div class="jumbotron text-light">
     <h1 class="display-4">Store Name</h1>
     <p class="lead">Browse our extensive selection of products includeing clothing, jewelery, electronics, and more; at prices you can afford.</p>
     <hr class="my-4">
@@ -8,14 +9,14 @@
       <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </p>
   </div>
-  <div class="row" class="card-group">
+  <div class="row card-group text-center">
     <div class="col-sm-3">
             <div class="card" style="width: 18rem; height: 480px;">
                 <img src={{images[0]}} class="card-img-top" alt="..." >
                     <div class="card-body">
                         <h5 class="card-title">{{categories[2]}}</h5>
                         <div class="dropdown">
-                            <button class="btn btn-primary" type="button" aria-expanded="false" (click)="catPass('mens clothing')">
+                            <button class="btn btn-primary" type="button" aria-expanded="false" (click)="catPass('men\'s clothing')">
                                 <a routerLink="/category" style="color: white; text-decoration: none;">View</a>
                             </button>
                         </div>
@@ -28,7 +29,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{categories[3]}}</h5>
                     <div class="dropdown">
-                        <button class="btn btn-primary" type="button" aria-expanded="false" (click)="catPass('womens clothing')">
+                        <button class="btn btn-primary" type="button" aria-expanded="false" (click)="catPass('women\'s clothing')">
                             <a routerLink="/category" style="color: white; text-decoration: none;">View</a>
                         </button>
                     </div>
@@ -37,7 +38,7 @@
 </div>
 <div class="col-sm-3">
     <div class="card" style="width: 18rem; height: 480px;">
-        <img src={{images[2]}} class="card-img-top" alt="..." >
+        <img src={{images[2]}} class="card-img-top border" alt="..." >
             <div class="card-body">
                 <h5 class="card-title">{{categories[0]}}</h5>
                 <div class="dropdown">
@@ -62,4 +63,4 @@
     </div>
 </div>
 </div>
-</section>
+</div>

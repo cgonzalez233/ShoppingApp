@@ -26,7 +26,7 @@ export class CategoryPageComponent implements OnInit {
     this.http.getCategories().subscribe(data=>this.categories = data)
   }
   catPass(category: string){
-    this.route.navigate(["name", category])
+    this.route.navigate(["category", category])
   }
 
 }

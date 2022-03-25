@@ -9,10 +9,10 @@ public interface UserService {
 
     public List<User> getAllUsers();
     public List<Order> getOrdersByUser(int userId);
+    public List<Order> getCartOrders(int userId);
     public User getUserById(int id);
     public User addUser(User user);
     public void updateUser(int id, User user);
     public void deleteUser(User user);
-    public User getUserByUsername(String username);
 
 }

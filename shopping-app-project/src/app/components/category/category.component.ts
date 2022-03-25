@@ -2,7 +2,7 @@ import { PathLocationStrategy } from '@angular/common';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {BehaviorSubject} from 'rxjs';
-import {DataServiceService} from 'src/app/data-service.service';
+import {DataService} from 'src/app/data.service';
 import { IProduct } from 'src/app/product';
 
 @Component({
@@ -16,50 +16,24 @@ export class CategoryComponent implements OnInit {
   //currentMessage = this.messageHolder.asObservable()
   category: any;
 
-  constructor(private _dataServ: DataServiceService, private route: ActivatedRoute) { 
+  constructor(private dataService: DataService, private route: ActivatedRoute) { 
     this.products = [];
   }
 
   ngOnInit(): void {
-    this.category = this.route.snapshot.paramMap.get('name');
-    switch (this.category){
-      case 'jewelery':
-        this._dataServ.getPoductsJewlery().subscribe(data=>this.products = data);
-        break;
-      case 'electronics':
-        this._dataServ.getPoductsElectronics().subscribe(data=>this.products = data);
-        break;
-        case 'mens clothing':
-        this._dataServ.getPoductsMensCloth().subscribe(data=>this.products = data);
-        break;
-        case 'womens clothing':
-        this._dataServ.getPoductsWomensCloth().subscribe(data=>this.products = data);
-        break;
-      default:
-        this._dataServ.getAllProducts().subscribe(data=> this.products = data);
-        break;
+    this.category = this.route.snapshot.paramMap.get('category');
+    if(!this.category){
+      this.dataService.getProducts().subscribe(data => 
+        this.products = data)
+    }else{
+      this.dataService.getProductsByCategory(this.category).subscribe(data => 
+        this.products = data)
     }
   }
 
   categoryBind(cat: string){
    // this.messageHolder.next(cat);
-   switch (cat){
-    case 'jewelery':
-      this._dataServ.getPoductsJewlery().subscribe(data=>this.products = data);
-      break;
-    case 'electronics':
-      this._dataServ.getPoductsElectronics().subscribe(data=>this.products = data);
-      break;
-      case 'mens clothing':
-      this._dataServ.getPoductsMensCloth().subscribe(data=>this.products = data);
-      break;
-      case 'womens clothing':
-      this._dataServ.getPoductsWomensCloth().subscribe(data=>this.products = data);
-      break;
-    default:
-      this._dataServ.getAllProducts().subscribe(data=> this.products = data);
-      break;
-  }
+   this.dataService.getProductsByCategory(cat).subscribe(data=>this.products = data);
   }
 
  
