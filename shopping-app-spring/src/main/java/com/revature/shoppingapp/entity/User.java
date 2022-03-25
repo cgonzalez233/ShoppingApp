@@ -42,19 +42,4 @@ public class User {
     private String address;
     private String phone;
 
-//    @OneToMany(
-//            cascade = CascadeType.ALL,
-//            fetch = FetchType.LAZY,
-//            mappedBy = "user"
-//    )
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    @JoinColumn(
-            name = "user_id",
-            referencedColumnName = "userId"
-    )
-    private List<Order> userOrders;
-
 }

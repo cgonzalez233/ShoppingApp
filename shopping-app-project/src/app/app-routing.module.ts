@@ -8,6 +8,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import {NewUserFormComponent}from 'src/app/components/new-user-form/new-user-form.component'
 import { CheckoutPageComponent } from './components/checkout-page/checkout-page.component';
+import { ItemPageComponent } from './components/item-page/item-page.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'category', component: CategoryComponent},
   {path: 'login-page', component: LoginPageComponent},
   {path: 'new-user-form', component: NewUserFormComponent},
-  {path: 'checkout-page', component: CheckoutPageComponent}
+  {path: 'checkout-page', component: CheckoutPageComponent},
+  {path: 'itemPage/:id', component: ItemPageComponent}
 ]
 
 @NgModule({

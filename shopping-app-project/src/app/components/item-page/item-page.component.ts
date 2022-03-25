@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/data.service';
 import { IProduct } from 'src/app/product';
 
@@ -10,22 +11,18 @@ import { IProduct } from 'src/app/product';
 export class ItemPageComponent implements OnInit {
 
   productInfo: any;
-  proId: number = 15;
+  proId: any;
   relatedProducts: any[] = [];
   proCat: String;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private route: ActivatedRoute) {
     
    }
 
   ngOnInit(): void {
-    this.dataService.getProductById(16).subscribe(data => {
+    this.proId = this.route.snapshot.paramMap.get("id")
+    this.dataService.getProductById(this.proId).subscribe(data => {
       this.productInfo = data
-    })
-    this.proCat = "women's clothing"
-    this.dataService.getProductsByCategoryRel(this.proCat).subscribe(data => {
-      this.relatedProducts = data
-      console.log(this.relatedProducts)
     })
 
   }
