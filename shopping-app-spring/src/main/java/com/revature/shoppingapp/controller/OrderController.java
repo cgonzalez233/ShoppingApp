@@ -23,7 +23,7 @@ public class OrderController {
         return orderService.getOrderById(id);
     }
 
-    @PostMapping("/employees")
+    @PostMapping("/orders")
     public Order addOrder(@RequestBody Order order){
         return orderService.addOrder(order);
     }

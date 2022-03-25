@@ -13,7 +13,6 @@ import { ItemPageComponent } from './components/item-page/item-page.component';
 import { CheckoutPageComponent } from './components/checkout-page/checkout-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { CategoryPageComponent } from './components/category-page/category-page.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductsComponent } from './components/products/products.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NewUserFormComponent } from './components/new-user-form/new-user-form.component';
@@ -38,7 +37,9 @@ import { NewUserFormComponent } from './components/new-user-form/new-user-form.c
     HttpClientModule,
     NgbModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

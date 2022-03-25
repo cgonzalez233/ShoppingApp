@@ -1,25 +1,35 @@
 <app-navbar></app-navbar>
-<div class="row">
-    <div class="col-lg-3">
-        <img src="{{productInfo.image}}" alt="" style="margin-top: 50px; margin-left: 50px; height: 500px;">
-    </div>
-    <div class="col-lg-9">
-        <div>
-            <br>
-            <br>
-            <br>
-            <h2>{{productInfo.title}}</h2>
-            <h3>{{productInfo.price}}</h3>
-            <br>
-            <p style="width: 1000px;">{{productInfo.description}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="{{productInfo.image}}" alt="" style="margin-top: 50px; height: 500px;">
+        </div>
+        <div class="col-lg-8">
+            <div>
+                <br>
+                <br>
+                <br>
+                <h2>{{productInfo.title}}</h2>
+                <h3>{{productInfo.price | currency}}</h3>
+                <br>
+                <p style="width: 1000px;">{{productInfo.description}}</p>
+                <br>
+                <br>
+                <button class=" btn btn-primary">Add to Cart</button>
+            </div>
         </div>
     </div>
-</div>
-
-<div class="row" >
-    <div class="col-sm-3" *ngFor="let related of relatedProducts">
-        <div class="card">
-            <img src="{{related.image}}" alt="{{related.title}}">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3" *ngFor="let related of relatedProducts">
+                    <img src="{{related.image}}" alt="{{related.title}}" style="height:200px;">
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -48,7 +48,8 @@ public class User {
 //            mappedBy = "user"
 //    )
     @OneToMany(
-            cascade = CascadeType.ALL
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
     )
     @JoinColumn(
             name = "user_id",

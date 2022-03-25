@@ -19,11 +19,11 @@ export class ItemPageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.dataService.getProductById(15).subscribe(data => {
+    this.dataService.getProductById(16).subscribe(data => {
       this.productInfo = data
     })
-    this.proCat = this.productInfo.category
-    this.dataService.getProductsByCategory(this.proCat).subscribe(data => {
+    this.proCat = "women's clothing"
+    this.dataService.getProductsByCategoryRel(this.proCat).subscribe(data => {
       this.relatedProducts = data
       console.log(this.relatedProducts)
     })
