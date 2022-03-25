@@ -1,9 +1,8 @@
 import { PathLocationStrategy } from '@angular/common';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {BehaviorSubject, throwIfEmpty} from 'rxjs';
-import { AppService } from 'src/app/data-service.service';
-import { DataService } from 'src/app/data.service';
+import {BehaviorSubject} from 'rxjs';
+import {DataService} from 'src/app/data.service';
 import { IProduct } from 'src/app/product';
 
 @Component({
@@ -16,13 +15,15 @@ export class CategoryComponent implements OnInit {
   //private messageHolder = new BehaviorSubject<string>('');
   //currentMessage = this.messageHolder.asObservable()
   category: any;
-  
-  constructor(private _dataServ: DataService, private route: ActivatedRoute, private gtest: AppService) { 
+
+  constructor(private dataService: DataService, private route: ActivatedRoute) { 
     this.products = [];
   }
+
   ngOnInit(): void {
     this.category = this.route.snapshot.paramMap.get('category');
-    if(!this.category){
+    console.log(this.category)
+    if(this.category == null){
       this.dataService.getProducts().subscribe(data => 
         this.products = data)
     }else{
@@ -32,11 +33,8 @@ export class CategoryComponent implements OnInit {
   }
 
   categoryBind(cat: string){
-    this._dataServ.getProductsByCategory(cat).subscribe(data=>this.products=data);
-  }
-  servicetest(change: boolean){
-    this.gtest.setMyGV(change);
-    this.gtest.getMyGV
+   // this.messageHolder.next(cat);
+   this.dataService.getProductsByCategory(cat).subscribe(data=>this.products = data);
   }
 
  

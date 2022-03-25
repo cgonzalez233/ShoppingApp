@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { IOrder } from './models/iorder';
 import { IUser } from './models/iuser';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -22,16 +21,12 @@ export class DataService {
     return this.http.get<any>('https://fakestoreapi.com/products');
   }
 
-
-  getProductsByCategory(catStr: String):Observable<any>{
-    return this.http.get<any>('https://fakestoreapi.com/products/category/' + catStr);
-
+  getProductsByCategory(catStr: any):Observable<any>{
+    return this.http.get<any>('https://fakestoreapi.com/products/category/' + catStr)
+  }
 
   getProductById(proId: any):Observable<any>{
-    return this.http.get<any>('https://fakestoreapi.com/products/' + proId);
-  }
-  getAllUsers():Observable<any>{
-    return this.http.get<any>('http://localhost:9000/users');
+    return this.http.get<any>('https://fakestoreapi.com/products/' + proId)
   }
 
   getProductsByCategoryRel(catStr: any):Observable<any>{
@@ -71,10 +66,6 @@ getUserById(id: number): Observable<any>{
 
 getOrdersbyUserId(id: number): Observable<any>{
   return this.http.get('http://localhost:9000/user/' + id + '/orders')
-}
-
-getUserCart(id: number): Observable<any>{
-  return this.http.get('http://localhost:9000/user/' + id + '/cart')
 }
 
 createUser(user: IUser): Observable<IUser>{
