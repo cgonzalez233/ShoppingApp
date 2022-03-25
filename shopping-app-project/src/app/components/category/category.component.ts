@@ -1,8 +1,9 @@
 import { PathLocationStrategy } from '@angular/common';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {BehaviorSubject} from 'rxjs';
-import {DataService} from 'src/app/data.service';
+import {BehaviorSubject, throwIfEmpty} from 'rxjs';
+import { AppService } from 'src/app/data-service.service';
+import { DataService } from 'src/app/data.service';
 import { IProduct } from 'src/app/product';
 
 @Component({
@@ -15,11 +16,10 @@ export class CategoryComponent implements OnInit {
   //private messageHolder = new BehaviorSubject<string>('');
   //currentMessage = this.messageHolder.asObservable()
   category: any;
-
-  constructor(private dataService: DataService, private route: ActivatedRoute) { 
+  
+  constructor(private _dataServ: DataService, private route: ActivatedRoute, private gtest: AppService) { 
     this.products = [];
   }
-
   ngOnInit(): void {
     this.category = this.route.snapshot.paramMap.get('category');
     if(!this.category){
@@ -32,8 +32,11 @@ export class CategoryComponent implements OnInit {
   }
 
   categoryBind(cat: string){
-   // this.messageHolder.next(cat);
-   this.dataService.getProductsByCategory(cat).subscribe(data=>this.products = data);
+    this._dataServ.getProductsByCategory(cat).subscribe(data=>this.products=data);
+  }
+  servicetest(change: boolean){
+    this.gtest.setMyGV(change);
+    this.gtest.getMyGV
   }
 
  
