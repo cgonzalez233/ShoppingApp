@@ -36,7 +36,8 @@ public class OrderServiceImpl implements OrderService{
 
 
     @Override
-    public Order addOrder(Order order) {
+    public Order addOrder(String name, double price, String image, int userId) {
+        Order order = new Order(name, price, image, userId);
         return repository.save(order);
     }
 
@@ -45,7 +46,7 @@ public class OrderServiceImpl implements OrderService{
         Order orderDb = repository.findById(orderId).get();
         orderDb.setItemName(order.getItemName());
         orderDb.setItemPrice(order.getItemPrice());
-        orderDb.setStatus(order.getStatus());
+        orderDb.setStatus("purchased");
         orderDb.setUserId(order.getUserId());
         repository.save(orderDb);
     }

@@ -29,7 +29,15 @@ public class Order {
     private int orderId;
     private String itemName;
     private double itemPrice;
+    private String image;
     private String status;
     private int userId;
 
+    public Order(String name, double price, String image ,int userId) {
+        this.itemName = name;
+        this.itemPrice = price;
+        this.status = "in cart";
+        this.image = image;
+        this.userId = userId;
+    }
 }

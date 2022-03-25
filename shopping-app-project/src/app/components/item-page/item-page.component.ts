@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AppService } from 'src/app/app.service';
 import { DataService } from 'src/app/data.service';
+import { CartOrder } from 'src/app/models/cart-order';
 import { IProduct } from 'src/app/product';
 
 @Component({
@@ -12,10 +14,11 @@ export class ItemPageComponent implements OnInit {
 
   productInfo: any;
   proId: any;
-  relatedProducts: any[] = [];
+  order: any;
   proCat: String;
+  currentUser: any = this.globaluser.getMyGV();
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) {
+  constructor(private dataService: DataService, private route: ActivatedRoute, private globaluser: AppService) {
     
    }
 
@@ -25,6 +28,21 @@ export class ItemPageComponent implements OnInit {
       this.productInfo = data
     })
 
+    console.log(this.globaluser.getMyGV())
+
+  }
+
+  addCart(itemName: string, itemPrice: number, image: string, userId: number){
+    this.order = new CartOrder(itemName, itemPrice,image, userId);
+    this.dataService.createOrder(this.order).subscribe()
+    console.log(this.order)
+  }
+
+  cantAdd(){
+    var button = document.getElementById('add');
+    var element = document.createElement('h5');
+    element.innerText = "Please Login";
+    button.appendChild(element);
   }
 
   

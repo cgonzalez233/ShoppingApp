@@ -11,7 +11,7 @@ public interface OrderService {
     public Order getOrderById(int orderId);
     public List<Order> getOrdersByUserId(int userId);
     public List<Order> getOrdersInCart(int userId);
-    public Order addOrder(Order order);
+    public Order addOrder(String name, double price, String image, int userId);
     public void updateOrder(int orderId, Order order);
     public void deleteOrder(Order order);
 

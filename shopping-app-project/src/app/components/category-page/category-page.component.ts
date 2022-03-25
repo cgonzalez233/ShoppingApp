@@ -12,10 +12,10 @@ export class CategoryPageComponent implements OnInit {
 
   public categories: any[] = [];
   public images: any [] = [
+    'https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg',
+    'https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg',
     'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg',
     'https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg',
-    'https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg',
-    'https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg'
   ];
 
 
@@ -25,9 +25,10 @@ export class CategoryPageComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.getCategories().subscribe(data => this.categories = data)
   }
-  catPass(category: string){
-    console.log(category)
-    this.route.navigate(["category", category])
+
+  catPass(id:any){
+    console.log(id)
+    this.route.navigate(["category", id])
   }
 
 }
