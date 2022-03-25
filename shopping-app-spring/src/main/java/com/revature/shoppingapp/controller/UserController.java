@@ -25,6 +25,9 @@ public class UserController {
         return userService.getOrdersByUser(id);
     }
 
+    @GetMapping("user/{id}/cart")
+    public List<Order> getUserCart(@PathVariable("id") int id){return userService.getCartOrders(id);}
+
     @GetMapping("/users/{id}")
     public User getUserById(@PathVariable("id") int id){
         return userService.getUserById(id);

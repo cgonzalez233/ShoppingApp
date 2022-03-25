@@ -1,1 +1,55 @@
-<p>checkout-page works!</p>
+<section class="vh-100 gradient-custom">
+    <div class="container py-5">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="card bg-dark text-white" style="border-radius: 1rem; height: auto;">
+            <div class="card-body p-5 text-center">
+                <div class="mb-md-5 mt-md-4 pb-5">
+
+                    <div *ngIf="purchased; then thenBlock; else elseBlock"></div>
+
+                    <ng-template #elseBlock>
+                        <h1>Cart</h1>
+                        <hr>
+                        <div class="container">
+                            <div class="row" *ngFor="let item of userCart"> 
+                                <div class="col-sm-3">
+                                    <img src="{{item.image}}" alt="{{item.title}}" style="height: 120px;">
+                                    <h1></h1>
+                                </div>
+                                <div class="col-sm-6">
+                                    <br>
+                                    <br>
+                                    <h5>{{item.title}}</h5>
+                                </div>
+                                <div class="col-sm-3 border-left">
+                                    <br>
+                                    <br>
+                                    <h4>{{item.price | currency}}</h4>
+                                </div>
+                                <hr style="width: 80%; margin: auto;">
+                                <br>
+                            </div>
+                            <h1>Total: {{getSum() | currency}}</h1>
+                            <br>
+                            <button class="btn btn-primary" (click)="purchase()" >Purchase</button>
+                        </div>
+                    </ng-template>
+
+
+                    <ng-template #thenBlock>
+                        <div class="container">
+                            <h1>Thank You!</h1>
+                            <h2>Your order has been placed!</h2>
+                        </div>
+                    </ng-template>
+
+
+                    
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</section>
+  
+                

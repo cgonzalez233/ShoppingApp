@@ -7,13 +7,16 @@ import { CategoryPageComponent } from './components/category-page/category-page.
 import { CategoryComponent } from './components/category/category.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import {NewUserFormComponent}from 'src/app/components/new-user-form/new-user-form.component'
+import { CheckoutPageComponent } from './components/checkout-page/checkout-page.component';
 
 const routes: Routes = [
-  {path: 'home-page', component: HomePageComponent},
+  {path: '', component: HomePageComponent},
   {path: 'category-page', component: CategoryPageComponent},
+  {path: 'category/:category', component: CategoryComponent},
   {path: 'category', component: CategoryComponent},
   {path: 'login-page', component: LoginPageComponent},
-  {path: 'new-user-form', component: NewUserFormComponent}
+  {path: 'new-user-form', component: NewUserFormComponent},
+  {path: 'checkout-page', component: CheckoutPageComponent}
 ]
 
 @NgModule({

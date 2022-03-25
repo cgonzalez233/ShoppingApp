@@ -8,14 +8,13 @@
         <div class="p-2 bd-highlight"><a class="nav-link" routerLink="category"(click)="categoryBind('electronics')" style="color: white;">Electronics</a></div>
         <div class="p-2 bd-highlight"><a class="nav-link" routerLink="category" (click)="categoryBind('jewelery')" style="color: white;">Jewelery</a></div>
     </div>
-    <p>category: {{7}}</p>
     <div class="container">
         <div class="row" class="card-group">
                 <div class="col-sm-3" *ngFor="let product of products">
-                        <div class="card" style="width: 18rem; height: 450px; margin: 5px;">
-                            <img src={{product.image}} class="card-img-top" alt="..." style="width: 200px; height: 250px;" >
-                                <div class="card-body" style="position: relative;">
-                                    <h5 class="card-title">{{product.title}} <p *ngIf="product.title.length < 50"><br></p></h5>
+                        <div class="card text-center" style="width: auto; height: 450px; margin: 5px;">
+                            <img src={{product.image}} class="card-img-top" alt="{{product.title}}" style="width: 200px; height: 250px; margin: auto;" >
+                                <div class="card-body border" style="position: relative;">
+                                    <h5 class="card-title">{{product.title}} <p *ngIf="product.title.length < 50"></p></h5>
                                     <p class="card-text">{{product.price | currency}}</p>
                                     <div class="dropdown">
                                         <button class="btn btn-primary" type="button" aria-expanded="false">

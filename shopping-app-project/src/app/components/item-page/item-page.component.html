@@ -1,35 +1,53 @@
-<app-navbar></app-navbar>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-4">
-            <img src="{{productInfo.image}}" alt="" style="margin-top: 50px; height: 500px;">
-        </div>
-        <div class="col-lg-8">
-            <div>
-                <br>
-                <br>
-                <br>
-                <h2>{{productInfo.title}}</h2>
-                <h3>{{productInfo.price | currency}}</h3>
-                <br>
-                <p style="width: 1000px;">{{productInfo.description}}</p>
-                <br>
-                <br>
-                <button class=" btn btn-primary">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3" *ngFor="let related of relatedProducts">
-                    <img src="{{related.image}}" alt="{{related.title}}" style="height:200px;">
+<section class="vh-100 gradient-custom">
+    <div class="container py-5">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="card bg-dark text-white" style="border-radius: 1rem; height: auto;">
+            <div class="card-body p-5 text-center">
+                <div class="mb-md-5 mt-md-4 pb-5">
+
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <img src="{{productInfo.image}}" alt="" style="margin-top: 50px; height: 500px;">
+                            </div>
+                            <div class="col-lg-8">
+                                <div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <h2>{{productInfo.title}}</h2>
+                                    <br>
+                                    <p>{{productInfo.description}}</p>
+                                    <br>
+                                    <h3>{{productInfo.price | currency}}</h3>
+                                    <br>
+                                    <button class=" btn btn-primary">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div>
+                            <div class="container text-center">
+                                <h1>Related Products</h1>
+                                <br>
+                                <div class="row">
+                                    <div class="col-lg-3" *ngFor="let related of relatedProducts">
+                                        <img src="{{related.image}}" alt="{{related.title}}" style="height:200px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+
+                    
                 </div>
             </div>
-        </div>
+          </div>
+      </div>
     </div>
-</div>
+</section>
+  

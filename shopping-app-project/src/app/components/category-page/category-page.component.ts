@@ -39,7 +39,7 @@ export class CategoryPageComponent implements OnInit {
 
   }
   catPass(category: string){
-    this.route.navigate(["name", category])
+    this.route.navigate(["category", category])
   }
 
 }

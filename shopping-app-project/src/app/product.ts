@@ -4,6 +4,6 @@ export interface IProduct{
     price: number,
     description: String,
     category: String,
-    image: String,
+    image: any,
     rating: Map<string, number>[]
 }

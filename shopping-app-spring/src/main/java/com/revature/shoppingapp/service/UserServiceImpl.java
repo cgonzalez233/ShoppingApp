@@ -28,6 +28,11 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public List<Order> getCartOrders(int userId){
+        return repository.findByUserInCart(userId);
+    }
+
+    @Override
     public User getUserById(int id) {
         return repository.findById(id).get();
     }
@@ -51,11 +56,5 @@ public class UserServiceImpl implements UserService{
     @Override
     public void deleteUser(User user) {
         repository.delete(user);
-    }
-
-    @Override
-    public User getUserByUsername(String username) {
-     //   return repository.findByUserusername(username);
-        return null;
     }
 }

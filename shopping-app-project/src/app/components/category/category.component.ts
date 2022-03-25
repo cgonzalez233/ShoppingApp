@@ -16,14 +16,19 @@ export class CategoryComponent implements OnInit {
   //private messageHolder = new BehaviorSubject<string>('');
   //currentMessage = this.messageHolder.asObservable()
   category: any;
-  catry: string;
+  
   constructor(private _dataServ: DataService, private route: ActivatedRoute, private gtest: AppService) { 
     this.products = [];
   }
   ngOnInit(): void {
-    this.category = this.route.snapshot.paramMap.get('name');
-    this._dataServ.getProductsByCategory(this.category).subscribe(data=>this.products = data);
- 
+    this.category = this.route.snapshot.paramMap.get('category');
+    if(!this.category){
+      this.dataService.getProducts().subscribe(data => 
+        this.products = data)
+    }else{
+      this.dataService.getProductsByCategory(this.category).subscribe(data => 
+        this.products = data)
+    }
   }
 
   categoryBind(cat: string){
