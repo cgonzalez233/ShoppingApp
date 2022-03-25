@@ -17,18 +17,20 @@ export class LoginPageComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.http.getAllUsers().subscribe(data=>this.users=data)
+    this.http.getUsers().subscribe(data=>this.users=data)
   }
   login(username: string, password: string){
+    console.log(this.globaluser.getMyGV())
     this.users.forEach(user => {
       if(user.username === username && user.password === password){
         this.welcome="you are now signed in "+username;
         this.globaluser.setMyGV(user);
-      }else{
-        this.welcome="Bad Credentials";
       }
       })
-    
+      
+      if(this.globaluser.getMyGV() == undefined){
+        this.welcome = "Bad Credentials"
+      }
     
   }
   
