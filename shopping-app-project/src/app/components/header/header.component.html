@@ -1,8 +1,17 @@
-<div class="jumbotron text-center">
-    <h1 class="display-4">Hello, User!</h1>
-    <p class="lead">Welcome the Shopping App!</p>
+<div class="jumbotron text-center text-light">
+  <div *ngIf="currentUser != undefined; then thenBlock; else elseBlock"></div>
+  <ng-template #thenBlock>
+    <h1 class="display-4">Hello, {{currentUser.username}}!</h1>
+    <p class="lead">Welcome to the Shopping App!</p>
     <hr class="my-4">
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="" role="button">Start Shopping</a>
-    </p>
+    <p class="lead">Try checking out one of our categories!</p>
+  </ng-template>
+  <ng-template #elseBlock>
+    <h1 class="display-4">Hello!</h1>
+    <p class="lead">Welcome to the Shopping App!</p>
+    <p class="lead">Please log in to add items to your cart</p>
+    <hr class="my-4">
+    <h2>Try checking out one of our categories!</h2>
+    <br>
+  </ng-template>
   </div>
