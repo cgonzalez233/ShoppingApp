@@ -13,71 +13,16 @@
 
   <div class="row card-group text-center">
       <div class="col-sm-3" *ngFor="let category of categories; let i = index">
-          <div class="card" style="width: 18rem; height: 480px;">
-            <img class="card-img-top" src="{{images[i]}}" alt="{{category}}"/>
-            <div class="card-body">
-                <h5 class="card-title text-dark">{{category}}</h5>
+          <div class="card border-dark rounded-lg border-2" style="width: 18rem; height: 400px;">
+            <br>
+            <img class="card-img-top" src="{{images[i]}}" alt="{{category}}" style="width: 200px; height: 250px; margin: auto;"/>
+            <div class="card-body border-2 border-top">
+                <h5 class="card-title text-dark">{{category | titlecase}}</h5>
                 <button class="btn btn-primary" type="button" aria-expanded="false" (click)="catPass(category)">
-                    View
+                    View Category
                 </button>
             </div>
           </div>
       </div>
   </div>
-
-
-  <!-- <div class="row card-group text-center">
-    <div class="col-sm-3">
-            <div class="card" style="width: 18rem; height: 480px;">
-                <img src={{images[0]}} class="card-img-top" alt="..." >
-                    <div class="card-body">
-                        <h5 class="card-title">{{categories[2]}}</h5>
-                        <div class="dropdown">
-                            <button class="btn btn-primary" type="button" aria-expanded="false" (click)="catPass('men\'s clothing')">
-                                <a routerLink="/category" style="color: white; text-decoration: none;">View</a>
-                            </button>
-                        </div>
-                    </div>
-            </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="card" style="width: 18rem; height: 480px;">
-            <img src={{images[1]}} class="card-img-top" alt="..." >
-                <div class="card-body">
-                    <h5 class="card-title">{{categories[3]}}</h5>
-                    <div class="dropdown">
-                        <button class="btn btn-primary" type="button" aria-expanded="false" (click)="catPass('women\'s clothing')">
-                            <a routerLink="/category" style="color: white; text-decoration: none;">View</a>
-                        </button>
-                    </div>
-                </div>
-        </div>
-</div>
-<div class="col-sm-3">
-    <div class="card" style="width: 18rem; height: 480px;">
-        <img src={{images[2]}} class="card-img-top border" alt="..." >
-            <div class="card-body">
-                <h5 class="card-title">{{categories[0]}}</h5>
-                <div class="dropdown">
-                    <button class="btn btn-primary" type="button" aria-expanded="false" (click)="catPass('electronics')">
-                        <a routerLink="/category" style="color: white; text-decoration: none;">View</a>
-                        </button>
-                </div>
-            </div>
-    </div>
-</div>
-<div class="col-sm-3">
-    <div class="card" style="width: 18rem; height: 480px;">
-        <img src={{images[3]}} class="card-img-top" alt="..." >
-            <div class="card-body">
-                <h5 class="card-title">{{categories[1]}}</h5>
-                <div class="dropdown">
-                    <button class="btn btn-primary" type="button" aria-expanded="false" (click)="catPass('jewelery')">
-                    <a routerLink="/category" style="color: white; text-decoration: none;">View</a>
-                    </button>
-                </div>
-            </div>
-    </div>
-</div>
-</div> -->
 </div>

@@ -1,21 +1,26 @@
 <section class="vh-700 gradient-custom">
-    <div class="d-flex flex-inline bd-highlight mb-3">
-        <div class="p-2 bd-highlight"><a class="nav-link" routerLink="category" (click)="categoryBind('men\'s clothing')" style="color: white;">Mens Clothing</a></div>
-        <div class="p-2 bd-highlight"><a class="nav-link" routerLink="category" (click)="categoryBind('women\'s clothing')" style="color: white;">Womens Clothing</a></div>
-        <div class="p-2 bd-highlight"><a class="nav-link" routerLink="category"(click)="categoryBind('electronics')" style="color: white;">Electronics</a></div>
-        <div class="p-2 bd-highlight"><a class="nav-link" routerLink="category" (click)="categoryBind('jewelery')" style="color: white;">Jewelery</a></div>
+    <br>
+    <div class="container text-center">
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" (click)="categoryBind('electronics')">Electronics</button>
+            <button type="button" class="btn btn-secondary" (click)="categoryBind('jewelery')">Jewelery</button>
+            <button type="button" class="btn btn-secondary" (click)="categoryBind('men\'s clothing')">Men's Clothing</button>
+            <button type="button" class="btn btn-secondary" (click)="categoryBind('women\'s clothing')">Women's Clothing</button>
+          </div>
     </div>
+    <br>
     <div class="container">
         <div class="row" class="card-group">
                 <div class="col-sm-3" *ngFor="let product of products">
-                        <div class="card text-center" style="width: auto; height: 450px; margin: 5px;">
+                        <div class="card text-center border-dark rounded-lg border-2" style="width: auto; height: 450px; margin: 5px;">
+                            <br>
                             <img src={{product.image}} class="card-img-top" alt="{{product.title}}" style="width: 200px; height: 250px; margin: auto;" >
-                                <div class="card-body border" style="position: relative;">
+                                <div class="card-body border " style="position: relative;">
                                     <h5 class="card-title">{{product.title}} <p *ngIf="product.title.length < 50"></p></h5>
                                     <p class="card-text">{{product.price | currency}}</p>
                                     <div class="dropdown">
                                         <button class="btn btn-primary" type="button" aria-expanded="false" (click)="onClick(product.id)">
-                                        View
+                                        View Item
                                         </button>
                                     </div>
                                 </div>
