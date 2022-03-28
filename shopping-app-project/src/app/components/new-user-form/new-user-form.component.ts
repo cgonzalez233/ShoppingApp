@@ -35,6 +35,12 @@ export class NewUserFormComponent implements OnInit {
       else{
         this.http.createUser(this.user).subscribe(data=>this.user = data);
       }
+
+      var button = document.getElementById('created');
+      var element = document.createElement('h5');
+      element.innerText = "User Created!";
+      button.appendChild(element);
+
   }
 
   ngOnInit(): void {

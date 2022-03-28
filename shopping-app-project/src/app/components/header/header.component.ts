@@ -8,10 +8,11 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class HeaderComponent implements OnInit {
 
-  currentUser: any = this.globalUser.getMyGV();
+  currentUser: any;
 
   constructor(private globalUser: AppService) { }
 
   ngOnInit(): void {
+    this.currentUser = this.globalUser.getMyGV();
   }
 }

@@ -36,14 +36,20 @@ export class ItemPageComponent implements OnInit {
     this.order = new CartOrder(itemName, itemPrice,image, userId);
     this.dataService.createOrder(this.order).subscribe()
     console.log(this.order)
+    var button = document.getElementById('added');
+    var element = document.createElement('h5');
+    element.innerText = "Added to Your Cart!";
+    button.appendChild(element);
   }
 
   cantAdd(){
-    var button = document.getElementById('add');
+    var button = document.getElementById('login');
     var element = document.createElement('h5');
     element.innerText = "Please Login";
     button.appendChild(element);
   }
+
+  
 
   
 
