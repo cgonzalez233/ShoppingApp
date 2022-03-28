@@ -1,29 +1,37 @@
 
 <section class="vh-100 gradient-custom">
-  <h1>{{newUserForm | json}}</h1>
-<form #newUserForm="ngForm">
-  <h3>Create Account:</h3>
-  <div class="form-group">
-    <label for="">Username:</label>
-    <input type="text" name="username" class="form-control" ngModel>
-  </div>
-  <div class="form-group">
-    <label for="">Password:</label>
-    <input type="password" name="password" class="form-control" ngModel>
-  </div>
-  <div class="form-group">
-    <label for="">Email:</label>
-    <input type="email" name="email" class="form-control" ngModel>
-  </div>
-  <div class="form-group">
-    <label for="">Address:</label>
-    <input type="text" name="address" class="form-control" ngModel>
-  </div>
-  <div class="form-group">
-    <label for="">Phone:</label>
-    <input type="text" name="phone" class="form-control" ngModel>
-  </div>
-  <input type="submit" value="Create" class="btn btn-primary float-right">
-</form>    
-
-</section>
+  <form #newUserForm="ngForm">
+    <h3>Create Account:</h3>
+    <div class="form-group">
+      <p style="color: white">{{message}}</p>
+      <label for="">Username:</label>
+      <input required type="text" name="username" class="form-control" [(ngModel)]='username' #userName="ngModel">
+      <div class="alert alert-danger" *ngIf="!userName.valid&& userName.touched">This is a required field</div>
+    </div>
+    <div class="form-group">
+      <label for="">Password:</label>
+      <input required type="password" name="password" class="form-control" [(ngModel)] = 'password' #Pass="ngModel">
+      <div class="alert alert-danger" *ngIf="!Pass.valid&& Pass.touched">This is a required field</div>
+    </div>
+    <div class="form-group">
+      <label for="">Email:</label>
+      <input required type="email" name="email" class="form-control" [(ngModel)] = 'email' #eAddress="ngModel">
+      <div class="alert alert-danger" *ngIf="eAddress.touched && !eAddress.valid">This is a required field</div>
+    </div>
+    <div class="form-group">
+      <label for="">Address:</label>
+      <input type="text" name="address" class="form-control" [(ngModel)] = 'address' #hAddress="ngModel">
+      <div required class="alert alert-danger" *ngIf="hAddress.touched && !hAddress.valid">This is a required field</div>
+    </div>
+    <div class="form-group">
+      <label for="">Phone:</label>
+      <input required type="text" name="phone" class="form-control" [(ngModel)] = 'phone'
+       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3} [0-9]{3} [0-9]{4}|[0-9]{3}[0-9]{3}[0-9]{4}" #Phone="ngModel">
+      <div class="alert alert-danger" *ngIf="!Phone.valid && Phone.touched">
+        <div>Please enter a Valid phone number:<br> (999 999 9999 || 999-999-9999 || 9999999999)</div>
+      </div>
+    </div>
+    <input *ngIf="newUserForm.valid" type="submit" value="Create" class="btn btn-primary float-right" (click)="addUser()">
+  </form>    
+  
+  </section>
