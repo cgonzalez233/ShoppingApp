@@ -44,4 +44,8 @@ export class CheckoutPageComponent implements OnInit {
     )
   }
 
+  deleteItem(id: number){
+    this.dataService.deleteOrder(id).subscribe();
+  }
+
 }

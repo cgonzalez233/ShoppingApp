@@ -1,5 +1,6 @@
 
 <section class="vh-100 gradient-custom">
+  
   <form #newUserForm="ngForm">
     <h3>Create Account:</h3>
     <div class="form-group">
@@ -32,6 +33,11 @@
       </div>
     </div>
     <input [disabled]="newUserForm.invalid" type="submit" value="Create" class="btn btn-primary float-right" (click)="addUser()">
+    <br>
+
+    <div class="container text-light">
+      <div id="created"></div>
+    </div>
   </form>    
   
   </section>

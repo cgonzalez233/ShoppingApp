@@ -22,8 +22,15 @@
   }
   h3{
       color: white;
-  }label{color: white}
+  }
+  label{
+      color: white
+    }
   input{
           margin-bottom: 10px;
           width: 400px;
+  }
+
+  #created{
+      text-align: center;
   }
