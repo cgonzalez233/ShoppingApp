@@ -15,7 +15,7 @@
     </div>
     <div class="form-group">
       <label for="">Email:</label>
-      <input required type="email" name="email" class="form-control" [(ngModel)] = 'email' #eAddress="ngModel">
+      <input required email type="email" name="email" class="form-control" [(ngModel)] = 'email' #eAddress="ngModel">
       <div class="alert alert-danger" *ngIf="eAddress.touched && !eAddress.valid">This is a required field</div>
     </div>
     <div class="form-group">
@@ -31,7 +31,7 @@
         <div>Please enter a Valid phone number:<br> (999 999 9999 || 999-999-9999 || 9999999999)</div>
       </div>
     </div>
-    <input *ngIf="newUserForm.valid" type="submit" value="Create" class="btn btn-primary float-right" (click)="addUser()">
+    <input [disabled]="newUserForm.invalid" type="submit" value="Create" class="btn btn-primary float-right" (click)="addUser()">
   </form>    
   
   </section>
